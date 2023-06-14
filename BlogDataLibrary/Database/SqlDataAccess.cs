@@ -20,10 +20,9 @@ namespace BlogDataLibrary.Database
         }
 
         public List<T> LoadData<T, U>(string sqlStatement,
-                    U parameters,
-                    string connectionStringName,
-
-                    bool isStoredProcedure)
+                                    U parameters,
+                                    string connectionStringName,
+                                    bool isStoredProcedure)
         {
             CommandType commandType = CommandType.Text;
             string connectionString = _config.GetConnectionString(connectionStringName);
@@ -35,7 +34,7 @@ namespace BlogDataLibrary.Database
 
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                List<T> rows = connection.Query<T>.Query<T>(sqlStatement, parameters,
+                List<T> rows = connection.Query<T>(sqlStatement, parameters,
                     commandType: commandType).ToList();
                 return rows;
 
