@@ -34,8 +34,12 @@ internal class Program
     static SqlData GetConnection()
     {
         var builder = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json");
+                .SetBasePath(@"C:\Users\johnm\OneDrive\Desktop\New folder\BlogTestUI")
+                .AddJsonFile("appsettings.json");
+
+
+
+
 
         IConfiguration config = builder.Build();
         ISqlDataAccess dbAccess = new SqlDataAccess(config);
